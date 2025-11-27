@@ -1,4 +1,4 @@
-using CourseManagementSystem.Models.Interfaces;
+using CourseManagementSystem.Interfaces;
 
 namespace CourseManagementSystem.Models
 {

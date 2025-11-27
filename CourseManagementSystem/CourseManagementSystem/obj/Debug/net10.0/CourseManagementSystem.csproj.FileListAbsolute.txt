@@ -12,3 +12,4 @@
 /Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.pdb
 /Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.genruntimeconfig.cache
 /Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/ref/CourseManagementSystem.dll
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.sourcelink.json

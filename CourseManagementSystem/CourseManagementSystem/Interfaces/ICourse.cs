@@ -1,16 +1,14 @@
-using System.Collections.Generic;
-
-namespace CourseManagementSystem.Models.Interfaces
+namespace CourseManagementSystem.Interfaces
 {
     public interface ICourse
     {
         int Id { get; }
         string Title { get; set; }
         string Description { get; set; }
-        Teacher Teacher { get; set; }
-        List<Student> Students { get; }
+        Models.Teacher Teacher { get; set; }
+        List<Models.Student> Students { get; }
         
-        void AddStudent(Student student);
+        void AddStudent(Models.Student student);
         bool RemoveStudent(int studentId);
         int GetStudentCount();
     }

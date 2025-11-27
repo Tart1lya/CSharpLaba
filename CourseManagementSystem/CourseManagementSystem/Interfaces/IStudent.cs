@@ -1,4 +1,4 @@
-namespace CourseManagementSystem.Models.Interfaces
+namespace CourseManagementSystem.Interfaces
 {
     public interface IStudent
     {

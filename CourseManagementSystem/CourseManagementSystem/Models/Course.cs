@@ -1,5 +1,4 @@
-using CourseManagementSystem.Models.Interfaces;
-using System.Collections.Generic;
+using CourseManagementSystem.Interfaces;
 
 namespace CourseManagementSystem.Models
 {

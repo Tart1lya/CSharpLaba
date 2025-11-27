@@ -1,5 +1,5 @@
 using CourseManagementSystem.Models;
-using CourseManagementSystem.Models.Interfaces;
+using CourseManagementSystem.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 
