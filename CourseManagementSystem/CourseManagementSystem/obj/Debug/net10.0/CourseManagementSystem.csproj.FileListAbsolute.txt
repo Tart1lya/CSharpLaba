@@ -1,0 +1,14 @@
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/bin/Debug/net10.0/CourseManagementSystem
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/bin/Debug/net10.0/CourseManagementSystem.deps.json
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/bin/Debug/net10.0/CourseManagementSystem.runtimeconfig.json
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/bin/Debug/net10.0/CourseManagementSystem.dll
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/bin/Debug/net10.0/CourseManagementSystem.pdb
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.AssemblyInfoInputs.cache
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.AssemblyInfo.cs
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.csproj.CoreCompileInputs.cache
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.dll
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/refint/CourseManagementSystem.dll
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.pdb
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/CourseManagementSystem.genruntimeconfig.cache
+/Users/goodkid/CSharpLaba/CourseManagementSystem/CourseManagementSystem/obj/Debug/net10.0/ref/CourseManagementSystem.dll
