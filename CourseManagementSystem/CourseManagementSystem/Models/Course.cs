@@ -2,51 +2,27 @@ using CourseManagementSystem.Interfaces;
 
 namespace CourseManagementSystem.Models
 {
+    // Абстрактный базовый класс, от которого будут наследоваться другие типы курсов.
     public abstract class Course : ICourse
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public Teacher Teacher { get; set; }
-        public List<Student> Students { get; }
+        private string _name;
+        private Teacher _teacher;
+        private List<Student> _students = new List<Student>();
 
-        protected Course(int id, string title, string description)
-        {
-            Id = id;
-            Title = title;
-            Description = description;
-            Students = new List<Student>();
-        }
+        public string GetName() => _name;
+        public void SetName(string name) => _name = name;
+
+        public Teacher GetTeacher() => _teacher;
+        public void SetTeacher(Teacher teacher) => _teacher = teacher;
+
+        public List<Student> GetStudents() => _students;
 
         public void AddStudent(Student student)
         {
-            if (!Students.Contains(student))
-            {
-                Students.Add(student);
-            }
+            _students.Add(student);
         }
 
-        public bool RemoveStudent(int studentId)
-        {
-            var student = Students.FirstOrDefault(s => s.Id == studentId);
-            if (student != null)
-            {
-                Students.Remove(student);
-                return true;
-            }
-            return false;
-        }
-
-        public int GetStudentCount()
-        {
-            return Students.Count;
-        }
-
-        public abstract string GetCourseType();
-
-        public override string ToString()
-        {
-            return $"Course: {Title} - {GetCourseType()} | Teacher: {Teacher?.FirstName} {Teacher?.LastName}";
-        }
+        // Абстрактный метод, который должны реализовать потомки
+        public abstract string GetCourseInfo();
     }
 }

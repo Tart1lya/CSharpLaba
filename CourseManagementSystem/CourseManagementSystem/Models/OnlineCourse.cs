@@ -1,25 +1,20 @@
 namespace CourseManagementSystem.Models
 {
+    // Наследуется от Course, добавляет специфичное поле – URL
     public class OnlineCourse : Course
     {
-        public string Platform { get; set; }
         public string Url { get; set; }
 
-        public OnlineCourse(int id, string title, string description, string platform, string url) 
-            : base(id, title, description)
+        public OnlineCourse(string name, string url)
         {
-            Platform = platform;
+            SetName(name);
             Url = url;
         }
 
-        public override string GetCourseType()
+        // Реализация абстрактного метода
+        public override string GetCourseInfo()
         {
-            return "Online";
-        }
-
-        public override string ToString()
-        {
-            return base.ToString() + $" | Platform: {Platform} | URL: {Url}";
+            return $"Online Course: {GetName()}, URL: {Url}";
         }
     }
 }
