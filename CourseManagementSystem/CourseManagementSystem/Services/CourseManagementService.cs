@@ -28,7 +28,15 @@ namespace CourseManagementSystem.Services
         // Получить все курсы конкретного преподавателя
         public List<ICourse> GetCoursesByTeacher(Teacher teacher)
         {
-            return _courses.Where(c => c.GetTeacher() != null && c.GetTeacher().Name == teacher.Name).ToList();
+            var result = new List<ICourse>();
+            foreach (var course in _courses) 
+            {
+                if (course.GetTeacher() != null && course.GetTeacher().Name == teacher.Name)
+                {
+                    result.Add(course);
+                }
+            }           
+            return result;
         }
 
         // Получить все курсы
