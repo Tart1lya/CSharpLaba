@@ -1,4 +1,5 @@
-﻿using CourseManagementSystem.Models;
+﻿using CourseManagementSystem.Interfaces;
+using CourseManagementSystem.Models;
 using CourseManagementSystem.Services;
 
 namespace CourseManagementSystem
@@ -9,33 +10,82 @@ namespace CourseManagementSystem
         {
             var service = new CourseService();
 
-            var teacher1 = new Teacher("Иванов И.И.");
-            var teacher2 = new Teacher("Петрова И.И.");
-            var student1 = new Student("Петров С.В.");
-            var student2 = new Student("Сидоров А.Б.");
+            // Список преподавателей
+            var teachers = new List<Teacher>
+            {
+                new Teacher("Иванов И.И."),
+                new Teacher("Петрова А.Б."),
+                new Teacher("Смирнов К.Л.")
+            };
 
-            var onlineCourse = new OnlineCourse("Программирование", "https://example.com");
-            var offlineCourse = new OfflineCourse("Математика", "Ауд. 301");
+            // Список студентов
+            var students = new List<Student>
+            {
+                new Student("Петров С.В."),
+                new Student("Сидоров А.Б."),
+                new Student("Кузнецова Е.М."),
+                new Student("Волков И.Т."),
+                new Student("Морозова Н.П.")
+            };
 
-            onlineCourse.SetTeacher(teacher1);
-            onlineCourse.AddStudent(student1);
+            // Список курсов
+            var courses = new List<ICourse>
+            {
+                new OnlineCourse("Программирование", "https://example.com/prog"),
+                new OfflineCourse("Математика", "301"),
+                new OnlineCourse("Дизайн", "https://example.com/design"),
+                new OfflineCourse("Физика", "402")
+            };
 
-            offlineCourse.SetTeacher(teacher2);
-            offlineCourse.AddStudent(student2);
+            // Назначаем преподавателей и студентов на курсы
 
-            service.AddCourse(onlineCourse);
-            service.AddCourse(offlineCourse);
+            // Курс 1: Программирование
+            courses[0].SetTeacher(teachers[0]); // Иванов И.И.
+            courses[0].AddStudent(students[0]); // Петров С.В.
+            courses[0].AddStudent(students[2]); // Кузнецова Е.М.
 
-            // Вывести информацию о курсах
+            // Курс 2: Математика
+            courses[1].SetTeacher(teachers[0]); // Иванов И.И.
+            courses[1].AddStudent(students[1]); // Сидоров А.Б.
+
+            // Курс 3: Дизайн
+            courses[2].SetTeacher(teachers[1]); // Петрова А.Б.
+            courses[2].AddStudent(students[3]); // Волков И.Т.
+
+            // Курс 4: Физика
+            courses[3].SetTeacher(teachers[2]); // Смирнов К.Л.
+            courses[3].AddStudent(students[4]); // Морозова Н.П.
+            courses[3].AddStudent(students[0]); // Петров С.В.
+
+            // Добавление всех курсов в систему
+            foreach (var course in courses)
+            {
+                service.AddCourse(course);
+            }
+
+            // Вывод всех курсов
+            Console.WriteLine("=== Все курсы ===");
             foreach (var course in service.GetAllCourses())
+            {
+                Console.WriteLine(course.GetCourseInfo());
+                Console.WriteLine();
+            }
+
+            // Вывод курсов конкретного преподавателя
+            Console.WriteLine($"\n=== Курсы преподавателя {teachers[0].Name} ==="); // Иванов И.И.
+            foreach (var course in service.GetCoursesByTeacher(teachers[0]))
             {
                 Console.WriteLine(course.GetCourseInfo());
             }
 
-            // Получить курсы преподавателя
-            var coursesByTeacher = service.GetCoursesByTeacher(teacher1);
-            Console.WriteLine($"\nКурсы преподавателя {teacher1.Name}:");
-            foreach (var course in coursesByTeacher)
+            Console.WriteLine($"\n=== Курсы преподавателя {teachers[1].Name} ==="); // Петрова А.Б.
+            foreach (var course in service.GetCoursesByTeacher(teachers[1]))
+            {
+                Console.WriteLine(course.GetCourseInfo());
+            }
+
+            Console.WriteLine($"\n=== Курсы преподавателя {teachers[2].Name} ==="); // Смирнов К.Л.
+            foreach (var course in service.GetCoursesByTeacher(teachers[2]))
             {
                 Console.WriteLine(course.GetCourseInfo());
             }

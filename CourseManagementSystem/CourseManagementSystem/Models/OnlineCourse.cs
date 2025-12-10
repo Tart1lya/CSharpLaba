@@ -14,7 +14,8 @@ namespace CourseManagementSystem.Models
         // Реализация абстрактного метода
         public override string GetCourseInfo()
         {
-            return $"Online Course: {GetName()}, URL: {Url}";
+            var students = string.Join(", ", GetStudents().Select(s => s.Name));
+            return $"Онлайн курс: {GetName()}, Ссылка: {Url}\n Студенты: [{students}]";
         }
     }
 }
