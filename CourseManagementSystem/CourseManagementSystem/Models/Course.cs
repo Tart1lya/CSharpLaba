@@ -2,7 +2,6 @@ using CourseManagementSystem.Interfaces;
 
 namespace CourseManagementSystem.Models
 {
-    // Абстрактный базовый класс, от которого будут наследоваться другие типы курсов.
     public abstract class Course : ICourse
     {
         private string _name;
@@ -22,7 +21,6 @@ namespace CourseManagementSystem.Models
             _students.Add(student);
         }
 
-        // Абстрактный метод, который должны реализовать потомки
         public abstract string GetCourseInfo();
     }
 }

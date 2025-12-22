@@ -7,13 +7,11 @@ namespace CourseManagementSystem.Services
     {
         private List<ICourse> _courses = new List<ICourse>();
 
-        // Добавление курса
         public void AddCourse(ICourse course)
         {
             _courses.Add(course);
         }
 
-        // Удаление курса
         public bool RemoveCourse(string courseName)
         {
             var course = _courses.FirstOrDefault(c => c.GetName() == courseName);
@@ -24,14 +22,12 @@ namespace CourseManagementSystem.Services
             }
             return false;
         }
-
-        // Получить все курсы конкретного преподавателя
         public List<ICourse> GetCoursesByTeacher(Teacher teacher)
         {
             var result = new List<ICourse>();
             foreach (var course in _courses) 
             {
-                if (course.GetTeacher() != null && course.GetTeacher().Name == teacher.Name)
+                if (course.GetTeacher() != null && course.GetTeacher().GetName() == teacher.GetName())
                 {
                     result.Add(course);
                 }
@@ -39,7 +35,6 @@ namespace CourseManagementSystem.Services
             return result;
         }
 
-        // Получить все курсы
         public List<ICourse> GetAllCourses()
         {
             return _courses;

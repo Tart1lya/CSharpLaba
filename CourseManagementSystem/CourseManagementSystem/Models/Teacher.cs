@@ -2,11 +2,14 @@ namespace CourseManagementSystem.Models
 {
     public class Teacher
     {
-        public string Name { get; set; }
+        private string _name;
 
         public Teacher(string name)
         {
-            Name = name;
+            SetName(name);
         }
+
+        public string GetName() => _name;
+        public void SetName(string name) => _name = name;
     }
 }

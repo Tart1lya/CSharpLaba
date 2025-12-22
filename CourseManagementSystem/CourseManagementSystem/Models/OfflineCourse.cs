@@ -1,26 +1,28 @@
 namespace CourseManagementSystem.Models
 {
-    // Наследуется от Course, добавляет место проведения
     public class OfflineCourse : Course
     {
-        public string Location { get; set; }
+        private string _location;
 
         public OfflineCourse(string name, string location)
         {
             SetName(name);
-            Location = location;
+            SetLocation(location);
         }
 
-        // Реализация абстрактного метода
+        public string GetLocation() => _location;
+        public void SetLocation(string location) => _location = location;
+
         public override string GetCourseInfo()
         {
             var studentNames = new List<string>();
             foreach (var student in GetStudents())
             {
-                studentNames.Add(student.Name);
+                studentNames.Add(student.GetName());
             }
             var students = string.Join(", ", studentNames);
-            return $"Оффлайн курс: {GetName()}, Аудитория: {Location}\n Студенты: [{students}]";
+
+            return $"Оффлайн курс: {GetName()}, Аудитория: {GetLocation()}\n  Студенты: [{students}]";
         }
     }
 }

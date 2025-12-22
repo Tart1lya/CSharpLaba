@@ -1,26 +1,28 @@
 namespace CourseManagementSystem.Models
 {
-    // Наследуется от Course, добавляет специфичное поле – URL
     public class OnlineCourse : Course
     {
-        public string Url { get; set; }
+        private string _url;
 
         public OnlineCourse(string name, string url)
         {
             SetName(name);
-            Url = url;
+            SetUrl(url);
         }
 
-        // Реализация абстрактного метода
+        public string GetUrl() => _url;
+        public void SetUrl(string url) => _url = url;
+
         public override string GetCourseInfo()
         {
             var studentNames = new List<string>();
             foreach (var student in GetStudents())
             {
-                studentNames.Add(student.Name);
+                studentNames.Add(student.GetName());
             }
             var students = string.Join(", ", studentNames);
-            return $"Онлайн курс: {GetName()}, Ссылка: {Url}\n Студенты: [{students}]";
+
+            return $"Онлайн курс: {GetName()}, Ссылка: {GetUrl()}\n  Студенты: [{students}]";
         }
     }
 }

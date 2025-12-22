@@ -10,7 +10,6 @@ namespace CourseManagementSystem
         {
             var service = new CourseService();
 
-            // Список преподавателей
             var teachers = new List<Teacher>
             {
                 new Teacher("Иванов И.И."),
@@ -18,7 +17,6 @@ namespace CourseManagementSystem
                 new Teacher("Смирнов К.Л.")
             };
 
-            // Список студентов
             var students = new List<Student>
             {
                 new Student("Петров С.В."),
@@ -28,7 +26,6 @@ namespace CourseManagementSystem
                 new Student("Морозова Н.П.")
             };
 
-            // Список курсов
             var courses = new List<ICourse>
             {
                 new OnlineCourse("Программирование", "https://example.com/prog"),
@@ -37,33 +34,25 @@ namespace CourseManagementSystem
                 new OfflineCourse("Физика", "402")
             };
 
-            // Назначаем преподавателей и студентов на курсы
+            courses[0].SetTeacher(teachers[0]);
+            courses[0].AddStudent(students[0]);
+            courses[0].AddStudent(students[2]);
 
-            // Курс 1: Программирование
-            courses[0].SetTeacher(teachers[0]); // Иванов И.И.
-            courses[0].AddStudent(students[0]); // Петров С.В.
-            courses[0].AddStudent(students[2]); // Кузнецова Е.М.
+            courses[1].SetTeacher(teachers[0]);
+            courses[1].AddStudent(students[1]);
 
-            // Курс 2: Математика
-            courses[1].SetTeacher(teachers[0]); // Иванов И.И.
-            courses[1].AddStudent(students[1]); // Сидоров А.Б.
+            courses[2].SetTeacher(teachers[1]);
+            courses[2].AddStudent(students[3]);
 
-            // Курс 3: Дизайн
-            courses[2].SetTeacher(teachers[1]); // Петрова А.Б.
-            courses[2].AddStudent(students[3]); // Волков И.Т.
+            courses[3].SetTeacher(teachers[2]);
+            courses[3].AddStudent(students[4]);
+            courses[3].AddStudent(students[0]);
 
-            // Курс 4: Физика
-            courses[3].SetTeacher(teachers[2]); // Смирнов К.Л.
-            courses[3].AddStudent(students[4]); // Морозова Н.П.
-            courses[3].AddStudent(students[0]); // Петров С.В.
-
-            // Добавление всех курсов в систему
             foreach (var course in courses)
             {
                 service.AddCourse(course);
             }
 
-            // Вывод всех курсов
             Console.WriteLine("=== Все курсы ===");
             foreach (var course in service.GetAllCourses())
             {
@@ -71,20 +60,19 @@ namespace CourseManagementSystem
                 Console.WriteLine();
             }
 
-            // Вывод курсов конкретного преподавателя
-            Console.WriteLine($"\n=== Курсы преподавателя {teachers[0].Name} ==="); // Иванов И.И.
+            Console.WriteLine($"\n=== Курсы преподавателя {teachers[0].GetName()} ===");
             foreach (var course in service.GetCoursesByTeacher(teachers[0]))
             {
                 Console.WriteLine(course.GetCourseInfo());
             }
 
-            Console.WriteLine($"\n=== Курсы преподавателя {teachers[1].Name} ==="); // Петрова А.Б.
+            Console.WriteLine($"\n=== Курсы преподавателя {teachers[1].GetName()} ===");
             foreach (var course in service.GetCoursesByTeacher(teachers[1]))
             {
                 Console.WriteLine(course.GetCourseInfo());
             }
 
-            Console.WriteLine($"\n=== Курсы преподавателя {teachers[2].Name} ==="); // Смирнов К.Л.
+            Console.WriteLine($"\n=== Курсы преподавателя {teachers[2].GetName()} ===");
             foreach (var course in service.GetCoursesByTeacher(teachers[2]))
             {
                 Console.WriteLine(course.GetCourseInfo());
